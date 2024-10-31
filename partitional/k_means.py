@@ -15,7 +15,7 @@ from utils.plot import (
 
 
 # Setup
-BENCHMARK_FILE = "s1.txt"
+BENCHMARK_FILE = "s1"
 NUMBER_OF_CLUSTERS = 15
 
 benchmark = load_benchmark(BENCHMARK_FILE)

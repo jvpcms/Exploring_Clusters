@@ -2,6 +2,7 @@ from typing import List
 import random
 from uuid import uuid4
 from utils.points import Point
+import numpy as np
 
 
 class Cluster:
@@ -22,7 +23,7 @@ class Cluster:
         if len(self.points) == 0:
             return
 
-        x = sum([point.x for point in self.points]) / len(self.points)
-        y = sum([point.y for point in self.points]) / len(self.points)
+        points = [point.vector for point in self.points]
+        avaerage = np.mean(points, axis=0)
 
-        self.centroid = Point(x, y)
+        self.centroid = Point(avaerage.tolist())

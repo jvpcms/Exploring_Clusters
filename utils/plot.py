@@ -17,16 +17,16 @@ def display_clear():
 
 def display_points(points: List[Point]):
     plt.scatter(
-        [point.x for point in points],
-        [point.y for point in points],
+        [point.vector[0] for point in points],
+        [point.vector[1] for point in points],
         c=[point.color for point in points],
     )
 
 
 def display_clusters_centroids(clusters: List[Cluster]):
     plt.scatter(
-        [cluster.centroid.x for cluster in clusters],
-        [cluster.centroid.y for cluster in clusters],
+        [cluster.centroid.vector[0] for cluster in clusters],
+        [cluster.centroid.vector[1] for cluster in clusters],
         color="black",
         marker="x",
     )
