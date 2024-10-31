@@ -1,4 +1,5 @@
-from utils import Point, Cluster
+from typing import List
+from utils import Point, Cluster, load_benchmark
 import matplotlib.pyplot as plt
 
 
@@ -7,7 +8,7 @@ NUMBER_OF_CLUSTERS = 15
 FRAME_INTERVAL = 0.1
 
 
-def update_display(points, clusters):
+def update_display(points: List[Point], clusters: List[Cluster]):
     plt.clf()  # Clear the current figure
 
     # Plot points
@@ -30,7 +31,7 @@ def update_display(points, clusters):
     plt.pause(FRAME_INTERVAL)
 
 
-benchmark = Point.load_benchmark(BENCHMARK_FILE)
+benchmark = load_benchmark(BENCHMARK_FILE)
 clusters = [Cluster(benchmark) for _ in range(NUMBER_OF_CLUSTERS)]
 
 points_changed_clusters = True

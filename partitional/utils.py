@@ -33,21 +33,21 @@ class Point:
         self.color = closest_cluster.color
         self.last_cluster_id = closest_cluster.id
 
-    @staticmethod
-    def load_benchmark(file: str) -> List["Point"]:
-        points = []
 
-        with open(f"benchmark/{file}") as f:
-            for line in f:
-                position = line.strip().split(" ")
-                position = list(filter(lambda x: x != "", position))
+def load_benchmark(file: str) -> List["Point"]:
+    points = []
 
-                x = int(position[0])
-                y = int(position[1])
+    with open(f"../benchmark/{file}") as f:
+        for line in f:
+            position = line.strip().split(" ")
+            position = list(filter(lambda x: x != "", position))
 
-                points.append(Point(x, y))
+            x = int(position[0])
+            y = int(position[1])
 
-        return points
+            points.append(Point(x, y))
+
+    return points
 
 
 class Cluster:
