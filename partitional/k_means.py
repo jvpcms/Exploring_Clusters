@@ -44,6 +44,7 @@ while points_changed_clusters:
     # Update cluster centroids
     for c in clusters:
         c.update_centroid()
+        c.reset_points()
 
     display_points(benchmark)
     display_clusters_centroids(clusters)

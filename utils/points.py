@@ -1,5 +1,5 @@
 import numpy as np
-from typing import List, Any, TYPE_CHECKING
+from typing import List, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from utils.clusters import Cluster
