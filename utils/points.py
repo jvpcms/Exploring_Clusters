@@ -11,7 +11,7 @@ class Point:
         self.dimension = len(vector)
 
         self.color: str = "#555555"
-        self.last_cluster_id: str | None = None
+        self.cluster_id: str | None = None
         self.changed_in_last_iteration: bool = False
 
     def distance(self, point: "Point") -> float:
@@ -30,11 +30,9 @@ class Point:
         closest_cluster = self.cluster_with_closest_centroid(clusters)
 
         # register if the point changed clusters from the last iteration
-        if closest_cluster.id == self.last_cluster_id:
+        if closest_cluster.id == self.cluster_id:
             self.changed_in_last_iteration = False
         else:
             self.changed_in_last_iteration = True
 
-        closest_cluster.points.append(self)
-        self.color = closest_cluster.color
-        self.last_cluster_id = closest_cluster.id
+        closest_cluster.add_point(self)
