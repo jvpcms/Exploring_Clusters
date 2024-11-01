@@ -32,6 +32,17 @@ def display_clusters_centroids(clusters: List[Cluster]):
     )
 
 
+def display_diameter(point1: Point, point2: Point):
+    plt.plot(
+        [point1.vector[0], point2.vector[0]],
+        [point1.vector[1], point2.vector[1]],
+        color="black",
+    )
+
+    plt.scatter([point1.vector[0]], [point1.vector[1]], color="red")
+    plt.scatter([point2.vector[0]], [point2.vector[1]], color="red")
+
+
 def display_refresh():
     plt.draw()
     plt.pause(FRAME_INTERVAL)
